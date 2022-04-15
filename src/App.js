@@ -1,15 +1,11 @@
 import React from "react";
 import Appengin from "./components/Appengin";
-
+import "./App.css";
 
 
 function App() {
-  return (
-    <div className="container">
-<div className="row">
+  return ( 
 <Appengin/>
-</div>
-    </div>
   );
 }
 

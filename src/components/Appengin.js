@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useReducer } from "react";
-import "./App.css";
-import Header from "./components/Header";
-import Movie from "./components/Movie";
-import Search from "./components/Search";
-import { GlobalStyles } from "./GlobalStyles";
-import { lightTheme, darkTheme } from "./theme/theme";
+import Header from "./Header";
+import Movie from "./Movie";
+import Search from ".//Search";
+import { GlobalStyles } from "../GlobalStyles";
+import { lightTheme, darkTheme } from "../theme/theme";
 import { ThemeProvider } from "styled-components";
-////////////////////////////////import////////////////////////////////////////// 
+////////////////////////////////import//////////////////////////////////////////
 
-
-const MOVIE_API_URL = "https://www.omdbapi.com/?s=woman&apikey=4a3b711b";
+const MOVIE_API_URL = "https://www.omdbapi.com/?s=dark&apikey=4a3b711b";
 
 const initialState = {
   loading: true,
@@ -25,19 +23,19 @@ const reducer = (state, action) => {
       return {
         ...state,
         loading: true,
-        errorMessage: null
+        errorMessage: null,
       };
     case "SEARCH_MOVIES_SUCCESS":
       return {
         ...state,
         loading: false,
-        movies: action.payload
+        movies: action.payload,
       };
     case "SEARCH_MOVIES_FAILURE":
       return {
         ...state,
         loading: false,
-        errorMessage: action.error
+        errorMessage: action.error,
       };
     default:
       return state;
@@ -45,13 +43,11 @@ const reducer = (state, action) => {
 };
 
 const Appengin = () => {
+  ////////////////////////////////////////////////////////////////////
 
-   ////////////////////////////////////////////////////////////////////
-// const [save , setSave]=useState([]);
-const addMovieFromWatchlist = (movie) => {
-  dispatch({ type: "ADD_MOVIE_TO_WATCHED", payload: movie });
-  
-};
+  const addMovieFromWatchlist = (movie) => {
+    dispatch({ type: "ADD_MOVIE_TO_WATCHED", payload: movie });
+  };
 
   ////////////////////////////////dark&&light//////////////////////////////////////////
   const [theme, setTheme] = useState("light");
@@ -69,6 +65,10 @@ const addMovieFromWatchlist = (movie) => {
 
   useEffect(() => {
     getlocalstoragetheme();
+  }, []);
+
+  useEffect(() => {
+    savelocaltheme();
   }, []);
   useEffect(() => {
     savelocaltheme();
@@ -117,15 +117,19 @@ const addMovieFromWatchlist = (movie) => {
         }
       });
   };
-////////////////////////////////disrpatch//////////////////////////////////////////
+  ////////////////////////////////disrpatch//////////////////////////////////////////
   const { movies, errorMessage, loading } = state;
   const MoviesCount = movies.length;
- 
+
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
       <div className="App">
-        <Header text="Movie - Search" toggleTheme={toggleTheme} movies={movies}  />
+        <Header
+          text="Movie - Search"
+          toggleTheme={toggleTheme}
+          movies={movies}
+        />
         <Search search={search} />
 
         <div style={{ display: "flex", justifyContent: "center" }}>
@@ -149,7 +153,11 @@ const addMovieFromWatchlist = (movie) => {
             <div className="errorMessage">{errorMessage}</div>
           ) : (
             movies.map((movie, index) => (
-              <Movie key={`${index}-${movie.Title}`} movie={movie}  addMovieFromWatchlist={addMovieFromWatchlist} />
+              <Movie
+                key={`${index}-${movie.Title}`}
+                movie={movie}
+                addMovieFromWatchlist={addMovieFromWatchlist}
+              />
             ))
           )}
         </div>

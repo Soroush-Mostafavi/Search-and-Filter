@@ -32,7 +32,6 @@ const Search = (props) => {
       >
         SEARCH
       </button>
-      {/* <input className="search-btn" onClick={callSearchFunction} type="submit" value="SEARCH" /> */}
     </form>
   );
 };
