@@ -156,7 +156,7 @@ const Appengin = () => {
               <Movie
                 key={`${index}-${movie.Title}`}
                 movie={movie}
-                addMovieFromWatchlist={addMovieFromWatchlist}
+                
               />
             ))
           )}

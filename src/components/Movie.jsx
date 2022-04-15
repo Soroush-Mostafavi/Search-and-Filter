@@ -52,7 +52,7 @@ const Movie = ({ movie}) => {
   /////////////////////////////////////////////////////////////////
   return (
     <div className="movie">
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345 }} style={{marginLeft:"15px"}}>
         <CardHeader
           avatar={<Avatar aria-label="recipe">{faker.image.people()}</Avatar>}
           action={
