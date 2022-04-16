@@ -6,7 +6,8 @@ In this program, we used Faker because this program does not have a server and t
 Modal has also been used.
 
 
-![search1](https://user-images.githubusercontent.com/91362381/163591220-b46a1a95-4332-44b0-b9bb-84bbf7390dec.jpg)
+![Scr (19)](https://user-images.githubusercontent.com/91362381/163662185-78eb4d2e-1daf-488b-81b3-17c98ec3bd22.jpg)
+
 
 
 ![seearch2](https://user-images.githubusercontent.com/91362381/163591230-9296f9eb-dc03-4bb7-b46b-f60f34b63daf.jpg)
